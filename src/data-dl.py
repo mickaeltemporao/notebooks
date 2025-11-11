@@ -13,8 +13,8 @@ csv_path = os.path.join(data_dir, csv_filename)
 # Ensure directory exists
 os.makedirs(data_dir, exist_ok=True)
 
-# FUNCTION to Download data if not available
-def ensure_csv_available():
+# FUNCTION to download the dataset if not available
+def check_data():
     if os.path.exists(csv_path):
         print(f"✅ CSV already exists: {csv_path}")
         return
@@ -42,11 +42,8 @@ def ensure_csv_available():
             f"Check ZIP contents in {data_dir}."
         )
 
-# ---- MAIN ----
-ensure_csv_available()
 
-print("📄 Loading CSV...")
+# Loading CSV...
+check_data() # Use the prepared function
 df = pd.read_csv(csv_path)
-
-print("✅ Data loaded. First rows:")
-print(df.head())
+df.head()
