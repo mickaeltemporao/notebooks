@@ -42,7 +42,6 @@ def check_data():
             f"Check ZIP contents in {data_dir}."
         )
 
-
 # Loading CSV...
 check_data() # Use the prepared function
 df = pd.read_csv(csv_path)
